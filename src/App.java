@@ -27,7 +27,13 @@ public class App {
         
         for (int i = 0; i <= table.length ; i++ ){
             if(i == 0){ // ! first line
-                System.out.print("| |");
+                System.out.print("\n|");
+                if(table.length > 9){
+                    System.out.print("  ");
+                }else{
+                    System.out.print(" ");
+                }
+                System.out.print("|");
                 for (int j = 0; j < table[i].length; j++ ){
                     System.out.print("|");
                     System.out.print(f.letter[j]);
@@ -36,7 +42,11 @@ public class App {
             }
             else{
                 System.out.print("\n|");
-                System.out.print(i);
+                if(table.length > 9 && i < 10){
+                    System.out.print("0"+i);
+                }else{
+                    System.out.print(i);
+                }
                 System.out.print("|");
                 for (int j = 0; j < table[i -1].length ; j++ ){
                     System.out.print("|");
@@ -83,7 +93,7 @@ public class App {
             System.out.println("veuillez notez une cordonnée (ex: B2):");
             
             String input = null;
-            input = scanner.next("\\w\\d");
+            input = scanner.next("(\\w\\d)|(\\d\\w)");
 
             String Cletter = input.replaceAll("\\d", "");
             System.out.println(Cletter);
